@@ -37,4 +37,30 @@ public class Sample_Steps
         System.out.println("login failed error msg visible");
     }
 
+    @When("user enter username as {string}")
+    public void user_enter_username_as(String UN)
+    {
+        System.out.println("enter username: "+UN);
+    }
+    @When("user enter password as {string}")
+    public void user_enter_password_as(String pwd)
+    {
+        System.out.println("entered pwd: "+pwd);
+    }
+
+    @When("user enter pin as {int}")
+    public void user_enter_pin_as(Integer pin) {
+        System.out.println("entered pin: "+pin);
+    }
+
+    @Then("home should be visible with {string} logo text")
+    public void home_should_be_visible_with_logo_text(String string)
+    {
+        System.out.println("logo text: "+string);
+    }
+
+
+
+
+
 }
