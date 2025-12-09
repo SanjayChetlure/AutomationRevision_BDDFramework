@@ -1,5 +1,6 @@
-package PageObjectModule;
+package Pages;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,6 +15,7 @@ public class SwagLabLoginPage {
     @FindBy(xpath = "//input[@id='user-name']") private WebElement UN ;    //private WebElement UN=driver.findElement(By.xpath(""))
     @FindBy(xpath = "//input[@id='password']")  private WebElement PWD;
     @FindBy(xpath = "//input[@id='login-button']")  private WebElement loginBtn;
+    @FindBy(xpath = "//h3[contains(text(),'Username and password do not match')]") private  WebElement loginFailedErrorMsg;
 
     //step2: initialization
     public SwagLabLoginPage(WebDriver driver)
@@ -35,6 +37,20 @@ public class SwagLabLoginPage {
     public void clickSwagLabLoginPageLoginBtn()
     {
         loginBtn.click();
+    }
+
+    public boolean getSwagLabLoginPageLoginFailedErrorMsgVisible()
+    {
+        boolean result=false;
+        try
+        {
+            result=loginFailedErrorMsg.isDisplayed();
+        }
+        catch (NoSuchElementException e)
+        {
+            System.out.println("Element not found");
+        }
+        return result;
     }
 
 }
