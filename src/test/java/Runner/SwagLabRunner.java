@@ -6,7 +6,10 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "C:\\Users\\sanja\\IdeaProjects\\AutomationRevision_BDDFramework\\src\\test\\java\\Features\\Rex1_loginToSwagLab.feature",
         glue = {"Hooks","Steps"},
-        tags = "@smoke"
+        tags = "@regression",
+        publish = true,
+        plugin = {"pretty","html:target/cucumber-reports/SwagLabsReports.html"}
+
 )
 
 public class SwagLabRunner extends AbstractTestNGCucumberTests

@@ -1,8 +1,10 @@
 package Hooks;
 
 import LibraryFiles.DriverFactory;
+import LibraryFiles.UtilityClass;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 
 import java.io.IOException;
 
@@ -16,8 +18,12 @@ public class SwagLabHooks
     }
 
     @After
-    public void closeBrowser()
-    {
+    public void closeBrowser(Scenario sce) throws IOException {
+        if (sce.isFailed())
+        {
+            UtilityClass.captureSS(sce);
+        }
+
         DriverFactory.driver.quit();
     }
 

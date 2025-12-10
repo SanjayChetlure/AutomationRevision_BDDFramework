@@ -1,3 +1,4 @@
+@regression
 Feature: swag lab login feature
   Background:
     Given user is on swagLab login page
@@ -10,7 +11,7 @@ Feature: swag lab login feature
     And wait for 1 second
     And user click on login button on swaglab login page
     And wait for 1 second
-    Then swag page should be visible with logo text "Swag Labs"
+    Then swag page should be visible with logo text "Swag Labs1"
     And wait for 3 second
 
   @smoke
