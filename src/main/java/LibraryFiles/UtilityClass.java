@@ -6,9 +6,11 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.io.FileHandler;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Properties;
 
 public class UtilityClass
 {
@@ -29,4 +31,17 @@ public class UtilityClass
 
         FileHandler.copy(srcFileName,destFileName);
     }
+
+    //This method is use get data from Property file, need to pass String keyName as a input
+//    @AuthorName- Sanjay
+    public static String getPFData(String key) throws IOException {
+        FileInputStream file=new FileInputStream("C:\\Users\\sanja\\IdeaProjects\\AutomationRevision_BDDFramework\\src\\main\\java\\LibraryFiles\\PropertyFile.properties");
+
+        Properties p=new Properties();
+        p.load(file);
+
+        String value = p.getProperty(key);
+        return value;
+    }
+
 }

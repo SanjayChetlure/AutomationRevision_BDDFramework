@@ -1,6 +1,7 @@
 package Steps;
 
 import LibraryFiles.DriverFactory;
+import LibraryFiles.UtilityClass;
 import Pages.SwagLabHomePage;
 import Pages.SwagLabLoginPage;
 import io.cucumber.java.en.Given;
@@ -8,27 +9,29 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
+import java.io.IOException;
+
 public class SwagLabLoginSteps
 {
     SwagLabLoginPage login=new SwagLabLoginPage(DriverFactory.driver);
     SwagLabHomePage home=new SwagLabHomePage(DriverFactory.driver);
 
     @Given("user is on swagLab login page")
-    public void user_is_on_swag_lab_login_page()
-    {
-        DriverFactory.driver.get("https://www.saucedemo.com/");
+    public void user_is_on_swag_lab_login_page() throws IOException {
+        String urlValue = UtilityClass.getPFData("URL");
+        DriverFactory.driver.get(urlValue);
     }
 
     @When("user enter username {string} on swaglab login page")
-    public void user_enter_username_on_swaglab_login_page(String UNValue)
-    {
-        login.inpSwagLabLoginPageUN(UNValue);
+    public void user_enter_username_on_swaglab_login_page(String UNKey) throws IOException {
+        String UVValue = UtilityClass.getPFData(UNKey);
+        login.inpSwagLabLoginPageUN(UVValue);
     }
 
     @When("user enter password {string} on swaglab login page")
-    public void user_enter_password_on_swaglab_login_page(String PWDValue)
-    {
-        login.inpSwagLabLoginPagePWD(PWDValue);
+    public void user_enter_password_on_swaglab_login_page(String pwdKey) throws IOException {
+        String pwdValue = UtilityClass.getPFData(pwdKey);
+        login.inpSwagLabLoginPagePWD(pwdValue);
     }
 
     @When("user click on login button on swaglab login page")
