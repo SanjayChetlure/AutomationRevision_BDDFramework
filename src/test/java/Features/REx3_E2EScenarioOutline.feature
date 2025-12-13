@@ -1,7 +1,6 @@
 Feature: products order End to End feature
 
-  Background:
-    Given user is on swagLab login page
+  Background: Given user is on swagLab login page
     When user enter username "username" on swaglab login page
     And wait for 1 second
     And user enter password "password" on swaglab login page
@@ -28,7 +27,8 @@ Feature: products order End to End feature
     And wait for 5 second
 
     Examples:
-    | FN   | LN    | Pin  | ExpectedMSg               |
-    | abc1 | xyz1  | 1111 | Thank you for your order! |
-    | abc2 | xyz2  | 2222 | Thank you for your order! |
-    | abc3 | xyz3  | 3333 | Thank you for your order! |
+      | FN   | LN    | Pin  | ExpectedMSg               |
+      | abc1 | xyz1  | 1111 | Thank you for your order! |
+      | abc2 | xyz2  | 2222 | Thank you for your order! |
+      | abc3 | xyz3  | 3333 | Thank you for your order! |
+

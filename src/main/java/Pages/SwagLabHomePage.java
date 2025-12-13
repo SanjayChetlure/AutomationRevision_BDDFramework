@@ -23,9 +23,6 @@ public class SwagLabHomePage
         return actLogoText;
     }
 
-
-
-
     public void clickSwagLabHomePageAddToCartBackpack()
     {
         addToCartBackpack.click();

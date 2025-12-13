@@ -3,7 +3,9 @@ package LibraryFiles;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -43,5 +45,22 @@ public class UtilityClass
         String value = p.getProperty(key);
         return value;
     }
+
+    public static void selectOptionInListbox(String text, WebElement ele) throws IOException
+    {
+        Select s=new Select(ele);
+        s.selectByVisibleText(text);
+    }
+
+    public static void selectOptionInListbox(int index, WebElement ele) throws IOException
+    {
+        Select s=new Select(ele);
+        s.selectByIndex(index);
+    }
+
+
+
+
+
 
 }

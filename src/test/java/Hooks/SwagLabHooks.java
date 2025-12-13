@@ -8,13 +8,15 @@ import io.cucumber.java.Scenario;
 
 import java.io.IOException;
 
-public class SwagLabHooks
+public class SwagLabHooks extends DriverFactory
 {
 
     @Before
     public void openBrowser() throws IOException
     {
-        DriverFactory.initializeBrowser("edge");
+        String browser = UtilityClass.getPFData("browserName");
+//        DriverFactory.initializeBrowser(browser);
+        initializeBrowser(browser);
     }
 
     @After
