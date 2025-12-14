@@ -12,8 +12,15 @@ import org.testng.annotations.Parameters;
         plugin = {"pretty","html:target/cucumber-reports/SwagLabsProductReports.html"}
 )
 
-public class SwagLabRunner extends AbstractTestNGCucumberTests
+public class SwagLabCTParallelExecutionRunner extends AbstractTestNGCucumberTests
 {
 
+    public static String browserName;
+
+    @Parameters("browserName")
+    @BeforeClass
+    public void setBrowser(String browser) {
+        browserName = browser;
+    }
 
 }

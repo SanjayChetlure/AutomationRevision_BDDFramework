@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="SwagLabCTParallelExecution">
+    <test name="Test1_Chrome">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="Runner.SwagLabCTParallelExecutionRunner"/>
+        </classes>
+    </test>
+
+
+    <test name="Test2_edge">
+        <parameter name="browserName" value="edge"/>
+        <classes>
+            <class name="Runner.SwagLabCTParallelExecutionRunner"/>
+        </classes>
+    </test>
+
+</suite>
