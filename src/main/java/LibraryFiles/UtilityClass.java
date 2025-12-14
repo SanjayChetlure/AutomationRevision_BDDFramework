@@ -4,6 +4,7 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.Select;
 
@@ -56,6 +57,18 @@ public class UtilityClass
     {
         Select s=new Select(ele);
         s.selectByIndex(index);
+    }
+
+    public static void mouseAction_dragAndDrop(WebElement src,WebElement dest) throws IOException
+    {
+        Actions act=new Actions(DriverFactory.driver);
+        act.dragAndDrop(src,dest).perform();
+    }
+
+    public static void mouseAction_doubleClick(WebElement ele) throws IOException
+    {
+        Actions act=new Actions(DriverFactory.driver);
+        act.doubleClick(ele).perform();
     }
 
 
